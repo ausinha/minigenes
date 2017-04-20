@@ -42,6 +42,8 @@ while True:
         #     if(s_start<-10):
         #         s_start = alt3SS_full_seq.find(seq[0][0:10])-0
     if(s_start>=0):
+        if s_start == 235:
+            print >>sys.stderr, header.split(' ')[0][1:]
         count[s_start] += 1
 
 for pos, num in count.most_common():
