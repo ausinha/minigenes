@@ -10,7 +10,7 @@ def main():
     args = read_args()
     minigenes = {}
 
-    for bam in [args.bam1, args.bam2]:
+    for bam in args.bams:
         for r in pysam.Samfile(os.path.expanduser(bam), 'rb'):
             if r.is_supplementary:
                 continue
@@ -41,8 +41,7 @@ def main():
 
 def read_args():
     parser = argparse.ArgumentParser(description='')
-    parser.add_argument('-a', '--bam1', help='')
-    parser.add_argument('-b', '--bam2', help='')
+    parser.add_argument('-b', '--bams', nargs='+')
     parser.set_defaults(
     )
 
